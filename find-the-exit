@@ -1,0 +1,81 @@
+choice1 = """
+1: door on the left,
+2: door in the middle,
+3: door on the right,
+4: Stay where you are and hope to be rescued"""
+
+choice2 = """
+1: door on the left,
+2: door on the middle,
+3: door in the right,"""
+
+door_left = """You have chosen the door on the left
+are you sure? Y/N"""
+
+door_right = """You have chosen the door on the right
+are you sure? Y/N"""
+
+door_middle = """You have chosen the door in the middle
+are you sure? Y/N"""
+
+axe = "A knight wielding a giant axe awaits you and chops off your head"
+
+hole = """The room is pitch black and as you walk through you fall in to
+a bottomless pit and spend the rest of your days falling in to darkness"""
+
+crush = """The room in front of you is light and you believe
+you have made the right choice, until you hear a noise and 
+when you look up you can see the ceiling in becoming lower.
+This continues until it crushes you in to the floor"""
+
+good_choice = f"""Well done you have chosen well, however you 
+are confronted by another 3 doors. Which door will you choose?
+{choice2}"""
+
+try_again = f"Ok choose another door {choice2}"
+
+done = False
+
+question = f"""You have awoken in an empty low lit room with 
+    no windows and only three doors. You have no
+    idea how you got here but you know you have to 
+    choose one of the following
+    {choice1}\n"""
+
+while not done:
+    play = (input(f'{question}'))
+
+    if play == "1":
+        user_input = input(f"{door_left}")
+        if user_input.lower() == "y":
+            print(f'{axe}')
+            done = True
+
+    elif play == "2":
+        user_input = input(f"{door_middle}")
+        if user_input.lower() == "y":
+            print(f'{hole}')
+            done = True
+
+    elif play == "3":
+        user_input = input(f"{door_right}")
+        if user_input.lower() == "y":
+            question = f'{good_choice}'
+
+    elif play == "4":
+        print("""You wait it out hoping to be saved
+                  1, 2, 3 days go by with none arriving
+                  eventually after many days of no food
+                  or water you become so dehydrated you
+                  fall over into a deep sleep never to
+                  awaken again.""")
+        done = True
+    else:
+        print("""You have failed too choose a correct 
+                  number, you hear all the doors lock and 
+                  a gas starts to appear from the walls. You 
+                  run over to the doors but they are all 
+                  locked, eventually the gas gets the better
+                  of you and you drift off into a forever
+                  slumber.""")
+        done = True
